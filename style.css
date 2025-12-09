@@ -1,0 +1,128 @@
+/* ========== GLOBAL RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== BASE STYLES ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+}
+
+/* ========== STICKY HEADER ========== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #7b0016;         /* dark red bar */
+  color: #ffffff;
+  padding: 16px 20px;
+  border-bottom: 1px solid #5a0010;
+}
+
+header h1 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+header .last-updated {
+  font-size: 14px;
+  opacity: 0.9;
+}
+header .Effective-date {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ========== MAIN LAYOUT ========== */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px;
+}
+
+/* ========== STICKY SIDEBAR (LEFT TOC) ========== */
+#sidebar {
+  width: 260px;
+  /* sticky inside page, below header */
+  position: sticky;
+  top: 80px;                      /* header height + little gap */
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 12px 14px;
+}
+
+#sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.toc {
+  list-style: decimal;
+  padding-left: 20px;
+}
+
+.toc li {
+  margin-bottom: 4px;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #7b0016;
+  font-size: 14px;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+  color: #000000;
+}
+
+/* ========== CONTENT AREA (RIGHT SIDE) ========== */
+.content {
+  flex: 1;
+  min-width: 0;              /* prevents overflow in flex layout */
+}
+
+.content section {
+  margin-bottom: 40px;
+}
+
+.content h3 {
+  font-size: 18px;
+  color: #7b0016;
+  margin-bottom: 8px;
+}
+
+.content p {
+  font-size: 14px;
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  #sidebar {
+    position: static;            /* no sticky on mobile */
+    width: 100%;
+    max-height: none;
+    margin-bottom: 16px;
+  }
+
+  header {
+    text-align: center;
+  }
+}
